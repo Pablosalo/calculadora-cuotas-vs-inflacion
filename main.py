@@ -1,0 +1,15 @@
+decimales = 7
+precio_contado = float(input("Cuánto sale en 1 pago? "))
+cant_cuotas = float(input("Cuántas cuotas te hacen? "))
+costo_total_cuotas = float(input("Cuánto cuesta financiado? (la suma de las cuotas) "))
+inflacion_anual = 0.601
+print("el costo de financiamiento que te están cobrando es de:")
+print(round(((costo_total_cuotas/precio_contado)**(1/cant_cuotas)-1),decimales))
+print("vs la inflación mensual esperada que es de: ")
+print(round(((1+inflacion_anual/1)**(1/12)-1),decimales))
+print("por lo tanto, financiar te sale")
+resultado = (((costo_total_cuotas/precio_contado)**(1/cant_cuotas)-1) - (((1+inflacion_anual/1)**(1/12)-1) ))
+print(round(resultado,decimales))
+print("Te conviene ")
+if resultado >= 0: print("PAGARLO EN UN PAGO")
+else: print("PAGARLO EN CUOTAS")
